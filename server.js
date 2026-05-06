@@ -1,10 +1,13 @@
 
-require('dotenv').config();
+const envConfig = require('dotenv').config();
+const envConfigExpand = require('dotenv-expand');
+
+envConfigExpand.expand(envConfig);
 
 const app  = require('./src/app');
 const connectDB = require('./src/config/db');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.APP_PORT || 3000;
 
 // Connect to MongoDB
 connectDB(); 
